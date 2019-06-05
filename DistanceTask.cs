@@ -2,11 +2,11 @@
 
 namespace DistanceTask
 {
-	public static class DistanceTask
+    public static class DistanceTask
+    {
+	// Расстояние от точки (x, y) до отрезка AB с координатами A(ax, ay), B(bx, by)
+	public static double GetDistanceToSegment(double ax, double ay, double bx, double by, double x, double y)
 	{
-		// Расстояние от точки (x, y) до отрезка AB с координатами A(ax, ay), B(bx, by)
-		public static double GetDistanceToSegment(double ax, double ay, double bx, double by, double x, double y)
-		{
             double xa = Math.Sqrt((ax - x)* (ax - x) + (ay - y)* (ay - y));//вектор из точки x в точку a
             double xb = Math.Sqrt((bx - x)* (bx - x) + (by - y)* (by - y));//вектор из точки x в точку b
             double ab = Math.Sqrt((bx - ax)* (bx - ax) + (by - ay)* (by - ay));//вектор из точки a в точку b
@@ -23,13 +23,5 @@ namespace DistanceTask
                 return (square * 2) / ab;
             return Math.Min(xa, xb);
         }
-	}
+    }
 }
-
-
-
-//return (Math.Abs((by-ay)*x-(bx-ax)*y+bx*ay-by*ax))/Math.Sqrt(Math.Pow(by-ay,2)+Math.Pow(bx-ax,2));
-
-//return Math.Abs((ay - by) * x + (bx - ax) * y + (ax * by - bx * ay)) / Math.Sqrt(Math.Pow(by - ay, 2) + Math.Pow(bx - ax, 2));
-
-//if (((xa + xb) > (ab * xb + ab)) && ((ab * xb + ab) > (xa * xa + ab)) && ((xa * xa + ab) > xb))
